@@ -10,9 +10,9 @@ CREATE TABLE products (
 
 INSERT INTO products (
     product_name,
-    product_price, 
-    product_description, 
-    product_amount, 
+    product_price,
+    product_description,
+    product_amount,
     product_image
 )
 VALUES 
