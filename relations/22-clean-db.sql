@@ -1,3 +1,5 @@
+DROP TABLE project_employees;
+DROP TABLE projects;
 DROP TABLE intranet_accounts;
 DROP TABLE employees;
 DROP TABLE teams;
