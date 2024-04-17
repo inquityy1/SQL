@@ -10,7 +10,7 @@ CREATE TABLE addresses (
     id SERIAL PRIMARY KEY,
     street VARCHAR(300) NOT NULL,
     house_number VARCHAR(50) NOT NULL,
-    sity_id INT NOT NULL
+    city_id INT NOT NULL
 );
 
 CREATE TABLE cities (
