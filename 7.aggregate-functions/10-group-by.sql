@@ -7,12 +7,7 @@
 -- INNER JOIN bookings AS b ON p.id = b.payment_id
 -- GROUP BY p.name;
 
--- SELECT p.name, b.booking_date, SUM(b.num_guests), ROUND(AVG(amount_tipped), 2)
--- FROM payment_methods AS p
--- INNER JOIN bookings AS b ON p.id = b.payment_id
--- GROUP BY p.name, b.booking_date;
-
-SELECT booking_date, COUNT(booking_date)
-FROM bookings
-GROUP BY booking_date
-HAVING SUM(amount_billed) > 30;
+SELECT p.name, b.booking_date, SUM(b.num_guests), ROUND(AVG(amount_tipped), 2)
+FROM payment_methods AS p
+INNER JOIN bookings AS b ON p.id = b.payment_id
+GROUP BY p.name, b.booking_date;
