@@ -8,7 +8,7 @@ CREATE TABLE locations (
     street VARCHAR(300) NOT NULL,
     house_number VARCHAR(10) NOT NULL,
     postal_code VARCHAR(5) NOT NULL,
-    city_name VARCHAR(200) REFERENCES cities (name)
+    city_name VARCHAR(200) REFERENCES cities (name) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE events (
@@ -19,5 +19,5 @@ CREATE TABLE events (
     description TEXT NOT NULL,
     max_participants INT CHECK (max_participants > 0),
     min_age INT CHECK (min_age > 0),
-    location_id INT REFERENCES locations (id)
+    location_id INT REFERENCES locations (id) ON DELETE CASCADE
 );
