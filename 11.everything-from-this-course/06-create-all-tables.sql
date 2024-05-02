@@ -24,6 +24,10 @@ CREATE TABLE organizers (
     user_id INT REFERENCES users (id) ON DELETE CASCADE
 );
 
+CREATE TABLE tags (
+    name VARCHAR(100) PRIMARY KEY
+);
+
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
     name VARCHAR(300) NOT NULL CHECK (LENGTH(name) > 5),
@@ -34,4 +38,16 @@ CREATE TABLE events (
     min_age INT CHECK (min_age > 0),
     location_id INT REFERENCES locations (id) ON DELETE CASCADE
     organizer_id INT REFERENCES organizers (user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE events_users (
+    event_id INT REFERENCES events (id) ON DELETE CASCADE,
+    user_id INT REFERENCES users (id) ON DELETE CASCADE,
+    PRIMARY KEY (event_id, user_id)
+);
+
+CREATE TABLE events_tags (
+    event_id INT REFERENCES events (id) ON DELETE CASCADE,
+    tag_name VARCHAR(100) REFERENCES tags (name) ON DELETE CASCADE,
+    PRIMARY KEY (event_id, tag_name)
 );
