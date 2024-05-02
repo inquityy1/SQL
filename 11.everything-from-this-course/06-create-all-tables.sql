@@ -1,5 +1,5 @@
 CREATE TABLE cities (
-    name VARCHAR(200) PRIMARY KEY,
+    name VARCHAR(200) PRIMARY KEY
 );
 
 CREATE TABLE locations (
@@ -20,8 +20,8 @@ CREATE TABLE users (
 );
 
 CREATE TABLE organizers (
-    password VARCHAR(500) NOT NULL
-    user_id INT REFERENCES users (id) ON DELETE CASCADE
+    password VARCHAR(500) NOT NULL,
+    user_id INT PRIMARY KEY REFERENCES users (id) ON DELETE CASCADE
 );
 
 CREATE TABLE tags (
@@ -36,7 +36,7 @@ CREATE TABLE events (
     description TEXT NOT NULL,
     max_participants INT CHECK (max_participants > 0),
     min_age INT CHECK (min_age > 0),
-    location_id INT REFERENCES locations (id) ON DELETE CASCADE
+    location_id INT REFERENCES locations (id) ON DELETE CASCADE,
     organizer_id INT REFERENCES organizers (user_id) ON DELETE CASCADE
 );
 
