@@ -29,4 +29,5 @@
 
 SELECT * FROM cities AS c
 LEFT JOIN locations AS loc ON c.name = loc.city_name
-LEFT JOIN events AS e ON e.location_id = loc.id;
+LEFT JOIN events AS e ON e.location_id = loc.id
+WHERE e.date_planned > '2020-01-01';
